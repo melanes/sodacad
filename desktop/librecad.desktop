@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=sodaCAD
+Comment=A pattern making CAD System
+TryExec=sodacad
+Exec=sodacad %F
+Icon=sodacad
+Categories=Graphics;Engineering;
+MimeType=image/vnd.dxf

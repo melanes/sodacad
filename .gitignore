@@ -1,0 +1,32 @@
+# Apple generated directories
+sodaCAD.app/
+sodaCAD.pbproj/
+Info.plist
+
+# Unix generated directories (except Apple)
+unix/
+
+#Doxygen
+html/
+
+# All platforms generated directories and files
+*.qm
+intermediate/
+Makefile
+qmake_image_collection.cpp
+sodacad.pro.user
+*.qch
+*.qhc
+plugins.pro.user
+
+# Mac store files
+.DS_Store
+
+#pkg files
+*.pkg
+
+#qt Creator files
+sodacad.files
+sodacad.includes
+sodacad.config
+sodacad.creator

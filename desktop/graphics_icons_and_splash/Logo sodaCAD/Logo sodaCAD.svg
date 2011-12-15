@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="550"
+   height="721"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.1 r9760"
+   sodipodi:docname="Logo LibreCAD.svg">
+  <title
+     id="title3035">LibreCAD Logo</title>
+  <defs
+     id="defs4">
+    <radialGradient
+       r="275.1348"
+       fy="-49.105164"
+       fx="1301.0398"
+       cy="-49.105164"
+       cx="1301.0398"
+       gradientTransform="matrix(0.99951017,0,0,1.0625151,-1025.4028,554.0383)"
+       gradientUnits="userSpaceOnUse"
+       id="radialGradient9302-2"
+       xlink:href="#linearGradient12685-8"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient12685-8">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="0"
+         id="stop12687-2" />
+      <stop
+         style="stop-color:#f2f2f2;stop-opacity:1"
+         offset="1"
+         id="stop12689-3" />
+    </linearGradient>
+    <radialGradient
+       r="275.1348"
+       fy="-49.105164"
+       fx="1301.0398"
+       cy="-49.105164"
+       cx="1301.0398"
+       gradientTransform="matrix(0.99951021,0,0,1.0625151,-1025.4027,602.6729)"
+       gradientUnits="userSpaceOnUse"
+       id="radialGradient3190"
+       xlink:href="#linearGradient15690-8-3"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient15690-8-3"
+       inkscape:collect="always">
+      <stop
+         id="stop15692-7-3"
+         offset="0"
+         style="stop-color:#424242;stop-opacity:1" />
+      <stop
+         id="stop15694-0-6"
+         offset="1"
+         style="stop-color:#1e1e1e;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient
+       r="275.1348"
+       fy="-49.105164"
+       fx="1301.0398"
+       cy="-49.105164"
+       cx="1301.0398"
+       gradientTransform="matrix(0.99951021,0,0,1.0625151,-1025.4027,934.03608)"
+       gradientUnits="userSpaceOnUse"
+       id="radialGradient3270"
+       xlink:href="#linearGradient15690-8-3"
+       inkscape:collect="always" />
+    <filter
+       color-interpolation-filters="sRGB"
+       inkscape:collect="always"
+       id="filter5505">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="4.6760086"
+         id="feGaussianBlur5507" />
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient8319"
+       id="linearGradient8325"
+       x1="419.58762"
+       y1="67.808495"
+       x2="421.62698"
+       y2="-148.44054"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       id="linearGradient8319">
+      <stop
+         style="stop-color:#d40055;stop-opacity:1;"
+         offset="0"
+         id="stop8321" />
+      <stop
+         id="stop8327"
+         offset="0.93098056"
+         style="stop-color:#e7318d;stop-opacity:0.49803922;" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop8323" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient8319"
+       id="linearGradient4080"
+       x1="419.58762"
+       y1="67.808495"
+       x2="421.62698"
+       y2="-148.44054"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       id="linearGradient4082">
+      <stop
+         style="stop-color:#d40055;stop-opacity:1;"
+         offset="0"
+         id="stop4084" />
+      <stop
+         id="stop4086"
+         offset="0.93098056"
+         style="stop-color:#e7318d;stop-opacity:0.49803922;" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop4088" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient12685-8"
+       id="radialGradient4160"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.99951017,0,0,1.0625151,-1025.4028,554.0383)"
+       cx="1301.0398"
+       cy="-49.105164"
+       fx="1301.0398"
+       fy="-49.105164"
+       r="275.1348" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient8319"
+       id="linearGradient4162"
+       gradientUnits="userSpaceOnUse"
+       x1="419.58762"
+       y1="67.808495"
+       x2="421.62698"
+       y2="-148.44054" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.85436893"
+     inkscape:cx="131.61932"
+     inkscape:cy="446.78167"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1440"
+     inkscape:window-height="849"
+     inkscape:window-x="0"
+     inkscape:window-y="29"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>LibreCAD Logo</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Diego Alejandro Torres Morales</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>CC</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-sa/3.0/" />
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>Daltom</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:date>2011-05-10</dc:date>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-sa/3.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-331.36218)">
+    <g
+       id="g4147"
+       transform="translate(0.4886364,19.897727)">
+      <rect
+         inkscape:export-ydpi="71.989487"
+         inkscape:export-xdpi="71.989487"
+         inkscape:export-filename="E:\Diego\my documents\Other works\LibreCad\PropuestaLibreCad2.png"
+         y="331.36328"
+         x="0.000114609"
+         height="341"
+         width="550"
+         id="rect12657-1"
+         style="fill:url(#radialGradient4160);fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <g
+         id="g8339"
+         transform="matrix(0.46746226,0,0,0.46746226,90.411028,510.21821)">
+        <text
+           transform="matrix(0.98135609,0,0,1.0189981,93.11083,-685.20559)"
+           sodipodi:linespacing="125%"
+           id="text7533"
+           y="738.03992"
+           x="79.560081"
+           style="font-size:227.65896606px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;color:#000000;fill:#2e3436;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;filter:url(#filter5505);enable-background:accumulate;font-family:OzHandicraft BT;-inkscape-font-specification:OzHandicraft BT Condensed"
+           xml:space="preserve"><tspan
+             id="tspan7535"
+             sodipodi:role="line"
+             x="79.560081"
+             y="738.03992">sodaCAD</tspan></text>
+        <g
+           id="g8333">
+          <text
+             xml:space="preserve"
+             style="font-size:227.65896606px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:OzHandicraft BT;-inkscape-font-specification:OzHandicraft BT Condensed"
+             x="170.6712"
+             y="61.097137"
+             id="text8329"
+             sodipodi:linespacing="125%"
+             transform="scale(0.98135609,1.0189981)"><tspan
+               y="61.097137"
+               x="170.6712"
+               sodipodi:role="line"
+               id="tspan8331"
+               style="fill:#ffffff;fill-opacity:1">sodaCAD</tspan></text>
+          <text
+             transform="scale(0.98135609,1.0189981)"
+             sodipodi:linespacing="125%"
+             id="text7537"
+             y="61.097137"
+             x="170.6712"
+             style="font-size:227.65896606px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;color:#000000;fill:url(#linearGradient4162);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:OzHandicraft BT;-inkscape-font-specification:OzHandicraft BT Condensed"
+             xml:space="preserve"><tspan
+               style="fill:url(#linearGradient4162);fill-opacity:1"
+               id="tspan7539"
+               sodipodi:role="line"
+               x="170.6712"
+               y="61.097137">sodaCAD</tspan></text>
+        </g>
+      </g>
+      <text
+         transform="scale(1.0132062,0.98696594)"
+         sodipodi:linespacing="125%"
+         id="text4143"
+         y="550.78925"
+         x="382.34128"
+         style="font-size:11.18418217px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Cortoba;-inkscape-font-specification:Cortoba"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+           y="550.78925"
+           x="382.34128"
+           id="tspan4145"
+           sodipodi:role="line">alpha</tspan></text>
+    </g>
+  </g>
+</svg>
