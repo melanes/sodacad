@@ -1183,6 +1183,10 @@ void QC_ApplicationWindow::initActions(void)
     action = actionFactory.createAction(RS2::ActionLayersEdit, actionHandler);
     action->addTo(menu);
     connect(this, SIGNAL(windowsChanged(bool)), action, SLOT(setEnabled(bool)));
+    action = actionFactory.createAction(RS2::ActionLayersToggleLock,
+                                        actionHandler);
+    menu->addAction(action);
+    connect(this, SIGNAL(windowsChanged(bool)), action, SLOT(setEnabled(bool)));
     action = actionFactory.createAction(RS2::ActionLayersToggleView,
                                         actionHandler);
     action->addTo(menu);
@@ -1199,6 +1203,10 @@ void QC_ApplicationWindow::initActions(void)
     action = actionFactory.createAction(RS2::ActionBlocksFreezeAll,
                                         actionHandler);
     action->addTo(menu);
+    connect(this, SIGNAL(windowsChanged(bool)), action, SLOT(setEnabled(bool)));
+    action = actionFactory.createAction(RS2::ActionBlocksToggleView,
+                                        actionHandler);
+    menu->addAction(action);
     connect(this, SIGNAL(windowsChanged(bool)), action, SLOT(setEnabled(bool)));
     action = actionFactory.createAction(RS2::ActionBlocksAdd, actionHandler);
     action->addTo(menu);
@@ -2545,11 +2553,6 @@ void QC_ApplicationWindow::slotFilePrint() {
     statusBar()->showMessage(tr("Printing..."));
     QPrinter printer(QPrinter::HighResolution);
 
-    // Try to set the printer to teh highest resolution
-    QList<int> res=printer.supportedResolutions ();
-    if (res.size()>0)
-        printer.setResolution(res.last());
-
     bool landscape = false;
     printer.setPaperSize(RS2::rsToQtPaperFormat(graphic->getPaperFormat(&landscape)));
     if (landscape) {
@@ -2571,6 +2574,26 @@ void QC_ApplicationWindow::slotFilePrint() {
         //printer.setOutputToFile(true);
         //printer.setOutputFileName(outputFile);
 
+        // Try to set the printer to the highest resolution
+        //todo: handler printer resolution better
+        if(printer.outputFormat() == QPrinter::NativeFormat ){
+            //bug#3448560
+            //fixme: supportedResolutions() only reports resolution of 72dpi
+            //this seems to be a Qt bug up to Qt-4.7.4
+            //we might be ok to keep the default resolution
+
+//            QList<int> res=printer.supportedResolutions ();
+//            if (res.size()>0)
+//                printer.setResolution(res.last());
+            //        for(int i=0;i<res.size();i++){
+            //        std::cout<<"res.at(i)="<<res.at(i)<<std::endl;
+            //        }
+        }else{//pdf or postscript format
+            //fixme: user should be able to set resolution output to file
+            printer.setResolution(1200);
+        }
+
+//        std::cout<<"printer.resolution()="<<printer.resolution()<<std::endl;
         QApplication::setOverrideCursor( QCursor(Qt::WaitCursor) );
         printer.setFullPage(true);
 
@@ -2677,8 +2700,6 @@ void QC_ApplicationWindow::slotFilePrintPreview(bool on) {
                     // Link the block list to the block widget
                     graphic->addBlockListListener(blockWidget);
 
-                    // Center by default:
-                    graphic->centerToPage();
                 }
 
                 // Link the graphic view to the mouse widget:
@@ -2699,6 +2720,10 @@ void QC_ApplicationWindow::slotFilePrintPreview(bool on) {
                     w->showMaximized();
                 } else {
                     w->show();
+                }
+
+                if(graphic!=NULL){
+                    graphic->fitToPage();
                 }
                 w->getGraphicView()->zoomPage();
                 setFocus();
@@ -2945,7 +2970,7 @@ void QC_ApplicationWindow::slotHelpAbout() {
                        "</font></p>" +
                        "<br>" +
                        "<center>" +
-                       tr("Please donate to LibreCAD to help maintain the sourcecode and it's website.") +
+                       tr("Please consider donating to sodaCAD to help maintain the sourcecode and it's website.") +
                        "<br>" +
                        "<br>" +
                        "<a href=\"http://librecad.org/donate.html\" alt=\"Donate to LibreCAD\">" +

@@ -30,6 +30,7 @@
 
 #include <iostream>
 #include <QStringList>
+#include <QMap>
 #include "rs_blocklist.h"
 
 /**
@@ -91,13 +92,16 @@ public:
 
     bool loadFont();
 
+    void generateAllFonts();
+
 	// Wrappers for block list (letters) functions
 	RS_BlockList* getLetterList() {
 		return &letterList;
 	}
-    RS_Block* findLetter(const QString& name) {
-		return letterList.find(name);
-	}
+    RS_Block* findLetter(const QString& name);
+//    RS_Block* findLetter(const QString& name) {
+//		return letterList.find(name);
+//	}
     uint countLetters() {
         return letterList.count();
     }
@@ -112,10 +116,14 @@ public:
 private:
     void readCXF(QString path);
     void readLFF(QString path);
+    RS_Block* generateLffFont(const QString& ch);
 
 private:
-	//! block list (letters)
-	RS_BlockList letterList;
+    //raw lff font file list, not processed into blocks yet
+    QMap<QString, QStringList> rawLffFontList;
+
+        //! block list (letters)
+        RS_BlockList letterList;
 
     //! Font file name
     QString fileName;

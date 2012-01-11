@@ -7,7 +7,7 @@
 **
 **
 ** This file may be distributed and/or modified under the terms of the
-** GNU General Public License version 2 as published by the Free Software 
+** GNU General Public License version 2 as published by the Free Software
 ** Foundation and appearing in the file gpl-2.0.txt included in the
 ** packaging of this file.
 **
@@ -15,12 +15,12 @@
 ** but WITHOUT ANY WARRANTY; without even the implied warranty of
 ** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ** GNU General Public License for more details.
-** 
+**
 ** You should have received a copy of the GNU General Public License
 ** along with this program; if not, write to the Free Software
 ** Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 **
-** This copyright notice MUST APPEAR in all copies of the script!  
+** This copyright notice MUST APPEAR in all copies of the script!
 **
 **********************************************************************/
 
@@ -37,16 +37,28 @@ RS_ActionSelect::RS_ActionSelect(RS_EntityContainer& container,
         :RS_ActionInterface("Select Entities", container, graphicView) {
 
     this->nextAction = nextAction;
+    selectSingle=true;
 }
 
 
 
 void RS_ActionSelect::init(int status) {
-	RS_ActionInterface::init(status);
-	graphicView->setCurrentAction(
-		new RS_ActionSelectSingle(*container, *graphicView));
+        RS_ActionInterface::init(status);
+        graphicView->setCurrentAction(
+                new RS_ActionSelectSingle(*container, *graphicView,this));
 }
 
+
+void RS_ActionSelect::resume(){
+    RS_ActionInterface::resume();
+    if(selectSingle==false){
+        finish();
+    }
+}
+
+void RS_ActionSelect::requestFinish(){
+    selectSingle=false;
+}
 
 
 void RS_ActionSelect::mouseReleaseEvent(QMouseEvent* e) {
@@ -55,11 +67,17 @@ void RS_ActionSelect::mouseReleaseEvent(QMouseEvent* e) {
     }
 }
 
-
+int RS_ActionSelect::countSelected() {
+        int ret=container->countSelected();
+        if(ret==0 || RS_DIALOGFACTORY!=NULL){
+            RS_DIALOGFACTORY->commandMessage(tr("No entity selected!"));
+        }
+        return ret;
+}
 
 void RS_ActionSelect::updateToolBar() {
     if (RS_DIALOGFACTORY!=NULL) {
-        if (isFinished()) {
+        if (isFinished() && countSelected()>=0){
             switch(nextAction) {
             case RS2::ActionModifyAttributesNoSelect:
             case RS2::ActionModifyDeleteNoSelect:
@@ -71,11 +89,11 @@ void RS_ActionSelect::updateToolBar() {
             case RS2::ActionModifyMoveRotateNoSelect:
             case RS2::ActionModifyRotate2NoSelect:
             case RS2::ActionModifyExplodeTextNoSelect:
-            RS_DIALOGFACTORY->requestToolBar(RS2::ToolBarModify);
-            break;
-            //case RS2::ActionBlocksCreateNoSelect:
+                RS_DIALOGFACTORY->requestToolBar(RS2::ToolBarModify);
+                break;
+                //case RS2::ActionBlocksCreateNoSelect:
             default:
-            RS_DIALOGFACTORY->requestToolBar(RS2::ToolBarMain);
+                RS_DIALOGFACTORY->requestToolBar(RS2::ToolBarMain);
             }
         } else {
             RS_DIALOGFACTORY->requestToolBarSelect(this, nextAction);
@@ -96,6 +114,12 @@ void RS_ActionSelect::updateMouseButtonHints() {
         break;
     case RS2::ActionModifyMoveNoSelect:
         RS_DIALOGFACTORY->updateMouseWidget(tr("Select to move"), tr("Cancel"));
+        break;
+    case RS2::ActionEditCopyNoSelect:
+        RS_DIALOGFACTORY->updateMouseWidget(tr("Select to copy"), tr("Cancel"));
+        break;
+    case RS2::ActionEditCutNoSelect:
+        RS_DIALOGFACTORY->updateMouseWidget(tr("Select to cut"), tr("Cancel"));
         break;
     case RS2::ActionModifyRotateNoSelect:
         RS_DIALOGFACTORY->updateMouseWidget(tr("Select to rotate"), tr("Cancel"));
@@ -125,4 +149,13 @@ void RS_ActionSelect::updateMouseButtonHints() {
 }
 
 
+void RS_ActionSelect::updateMouseCursor() {
+    if(graphicView!=NULL){
+        if(isFinished()){
+            graphicView->setMouseCursor(RS2::ArrowCursor);
+        }else{
+            graphicView->setMouseCursor(RS2::SelectCursor);
+        }
+    }
+}
 // EOF
