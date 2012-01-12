@@ -1,7 +1,5 @@
 <RCC>
     <qresource prefix="/main">
-        <file>librecad.png</file>
-        <file>librecad16.png</file>
         <file>contents.png</file>
         <file>document.png</file>
         <file>editclear.png</file>
@@ -11,5 +9,7 @@
         <file>intro_librecad.png</file>
         <file>donate.png</file>
         <file>splash_sodacad.png</file>
+        <file>sodacad.png</file>
+        <file>sodacad16.png</file>
     </qresource>
 </RCC>
