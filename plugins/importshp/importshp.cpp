@@ -31,14 +31,14 @@ PluginCapabilities ImportShp::getCapabilities() const
 {
     PluginCapabilities pluginCapabilities;
     pluginCapabilities.menuEntryPoints
-            << PluginMenuLocation("File/Import", tr("shape file"));
+            << PluginMenuLocation("File/Import", "ESRI Shapefile");
     return pluginCapabilities;
 }
 
 QString ImportShp::name() const
- {
-     return (tr("shape file"));
- }
+{
+    return (tr("Import ESRI Shapefile"));
+}
 
 void ImportShp::execComm(Document_Interface *doc,
                              QWidget *parent, QString /*cmd*/)
@@ -53,6 +53,7 @@ void ImportShp::execComm(Document_Interface *doc,
 /*****************************/
 dibSHP::dibSHP(QWidget *parent) :  QDialog(parent)
 {
+    setWindowTitle(tr("Import ESRI Shapefile"));
     QVBoxLayout *mainLayout = new QVBoxLayout;
 
     QPushButton *filebut = new QPushButton(tr("File..."));
@@ -64,7 +65,7 @@ dibSHP::dibSHP(QWidget *parent) :  QDialog(parent)
     mainLayout->addLayout(lofile);
 
     QLabel *formatlabel = new QLabel(tr("File type:"));
-    formattype = new QLabel(tr("Unknoun"));
+    formattype = new QLabel(tr("Unknown"));
     QHBoxLayout *loformat = new QHBoxLayout;
     loformat->addWidget(formatlabel);
     loformat->addWidget(formattype);
@@ -164,7 +165,7 @@ void dibSHP::checkAccept()
 void dibSHP::getFile()
 {
     QString fileName = QFileDialog::getOpenFileName(this, tr("Select file"),
-                                fileedit->text(), "Shapefiles *.shp(*.shp)");
+                                fileedit->text(), "ESRI Shapefiles (*.shp)");
     fileedit->setText(fileName);
     updateFile();
 }
@@ -178,7 +179,7 @@ void dibSHP::updateFile()
     char field_name[12];
 
     QFileInfo fi = QFileInfo(fileName);
-    if (fi.suffix() != "shp") return;
+    if (fi.suffix().toLower() != "shp") return;
     QString file = fi.canonicalFilePath ();
     if (file.isEmpty()) return;
 
@@ -209,30 +210,60 @@ void dibSHP::updateFile()
 
     switch (st) {
     case SHPT_POINT:
-    case SHPT_POINTM:
-    case SHPT_POINTZ: //3d point
-    case SHPT_MULTIPOINT:
-    case SHPT_MULTIPOINTM:
-    case SHPT_MULTIPOINTZ:
         formattype->setText(tr("Point"));
         pointbox->setDisabled(false);
         break;
+    case SHPT_POINTM:
+        formattype->setText(tr("Point+Measure"));
+        pointbox->setDisabled(false);
+        break;
+    case SHPT_POINTZ: //3d point
+        formattype->setText(tr("3D Point"));
+        pointbox->setDisabled(false);
+        break;
+    case SHPT_MULTIPOINT:
+        formattype->setText(tr("Multi Point"));
+        pointbox->setDisabled(false);
+        break;
+    case SHPT_MULTIPOINTM:
+        formattype->setText(tr("Multi Point+Measure"));
+        pointbox->setDisabled(false);
+        break;
+    case SHPT_MULTIPOINTZ:
+        formattype->setText(tr("3D Multi Point"));
+        pointbox->setDisabled(false);
+        break;
     case SHPT_ARC:
-    case SHPT_ARCM:
-    case SHPT_ARCZ:
         formattype->setText(tr("Arc"));
         pointbox->setDisabled(true);
         break;
+    case SHPT_ARCM:
+        formattype->setText(tr("Arc+Measure"));
+        pointbox->setDisabled(true);
+        break;
+    case SHPT_ARCZ:
+        formattype->setText(tr("3D Arc"));
+        pointbox->setDisabled(true);
+        break;
     case SHPT_POLYGON:
+        formattype->setText(tr("Polygon"));
+        pointbox->setDisabled(true);
+        break;
     case SHPT_POLYGONM:
+        formattype->setText(tr("Polygon+Measure"));
+        pointbox->setDisabled(true);
+        break;
     case SHPT_POLYGONZ:
-        formattype->setText(tr("Poligon"));
+        formattype->setText(tr("3D Polygon"));
         pointbox->setDisabled(true);
         break;
     case SHPT_MULTIPATCH:
+        formattype->setText(tr("Multipatch"));
+        pointbox->setDisabled(true);
+        break;
     case SHPT_NULL:
     default:
-        formattype->setText(tr("Unknoun"));
+        formattype->setText(tr("Unknown"));
         pointbox->setDisabled(true);
         break;
     }
@@ -246,7 +277,7 @@ void dibSHP::procesFile(Document_Interface *doc)
     currDoc = doc;
 
     QFileInfo fi = QFileInfo(fileedit->text());
-    if (fi.suffix() != "shp") {
+    if (fi.suffix().toLower() != "shp") {
         QMessageBox::critical ( this, "Shapefile", QString(tr("The file %1 not have extension .shp")).arg(fileedit->text()) );
         return;
     }
@@ -314,9 +345,9 @@ void dibSHP::procesFile(Document_Interface *doc)
             case SHPT_ARC:
             case SHPT_ARCM:
             case SHPT_ARCZ:
+            case SHPT_POLYGON:
                 readPolyline(dh, i);
                 break;
-            case SHPT_POLYGON:
             case SHPT_POLYGONM:
             case SHPT_POLYGONZ:
                 readPolylineC(dh, i);
@@ -341,7 +372,7 @@ void dibSHP::readPoint(DBFHandle dh, int i){
         ent = currDoc->newEntity(DPI::POINT);
         ent->getData(&data);
     } else {
-        ent = currDoc->newEntity(DPI::TEXT);
+        ent = currDoc->newEntity(DPI::MTEXT);
         ent->getData(&data);
         data.insert(DPI::TEXTCONTENT, DBFReadStringAttribute( dh, i, pointF ) );
     }
@@ -354,21 +385,33 @@ void dibSHP::readPoint(DBFHandle dh, int i){
 }
 
 void dibSHP::readPolyline(DBFHandle dh, int i){
+    int maxPoints;
     Plug_Entity *ent =NULL;
     QHash<int, QVariant> data;
-    ent = currDoc->newEntity(DPI::POLYLINE);
-/*    data.insert(DPI::STARTX, *(sobject->padfX));
-    data.insert(DPI::STARTY, *(sobject->padfY));*/
+    QList<Plug_VertexData> vl;
+
     readAttributes(dh, i);
     data.insert(DPI::LAYER, attdata.layer);
-    ent->updateData(&data);
-    currDoc->addEntity(ent);
+    for( int i = 0; i < sobject->nParts; i++ ) {
+        if ( (i+1) < sobject->nParts) maxPoints = sobject->panPartStart[i+1];
+        else maxPoints = sobject->nVertices;
+        vl.clear();
+        for( int j = sobject->panPartStart[i]; j < maxPoints; j++ ) {
+            vl.append( Plug_VertexData( QPointF(sobject->padfX[j],sobject->padfY[j]), 0.0) );
+        }
+        if (vl.size() > 2 ) {
+            ent = currDoc->newEntity(DPI::POLYLINE);
+            ent->updateData(&data);
+            currDoc->addEntity(ent);
+            ent->updatePolylineData(&vl);
+        }
+    }
 }
 
-void dibSHP::readPolylineC(DBFHandle dh, int i){
+void dibSHP::readPolylineC(DBFHandle /*dh*/, int /*i*/){
 }
 
-void dibSHP::readMultiPolyline(DBFHandle dh, int i){
+void dibSHP::readMultiPolyline(DBFHandle /*dh*/, int /*i*/){
 }
 
 void dibSHP::readAttributes(DBFHandle dh, int i){
@@ -410,4 +453,6 @@ void dibSHP::writeSettings()
     settings.setValue("lastfile", fileedit->text());
  }
 
+#if QT_VERSION < 0x050000
 Q_EXPORT_PLUGIN2(importshp, ImportShp);
+#endif

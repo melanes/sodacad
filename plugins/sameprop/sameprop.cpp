@@ -33,13 +33,14 @@ void LC_SameProp::execComm(Document_Interface *doc,
                              QWidget *parent, QString cmd)
 {
     Q_UNUSED(parent);
+    Q_UNUSED(cmd);
     QHash<int, QVariant> data, moddata;
     QList<Plug_Entity *> obj;
     QVariant lay, col, ltype, lwidth;
     Plug_Entity *ent, *modent;
-    ent =  doc->getEnt("select original entity:");
+    ent =  doc->getEnt(tr("select original entity:"));
     if (!ent) return;
-    bool yes  = doc->getSelect(&obj, "select entities to change");
+    bool yes  = doc->getSelect(&obj, tr("select entities to change"));
     if (!yes || obj.isEmpty()) {
         delete ent;
         return;
@@ -64,4 +65,6 @@ void LC_SameProp::execComm(Document_Interface *doc,
 }
 
 
+#if QT_VERSION < 0x050000
 Q_EXPORT_PLUGIN2(lc_sameprop, LC_SameProp);
+#endif

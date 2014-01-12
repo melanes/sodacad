@@ -21,6 +21,9 @@ class LC_Sample : public QObject, QC_PluginInterface
 {
     Q_OBJECT
      Q_INTERFACES(QC_PluginInterface)
+#if QT_VERSION >= 0x050000
+     Q_PLUGIN_METADATA(IID "org.librecad.sample" FILE  "sample.json")
+#endif
 
  public:
     virtual PluginCapabilities getCapabilities() const;
@@ -38,8 +41,8 @@ public:
     ~lc_Sampledlg();
 
 public slots:
-//    void procesAction(QStringList *commandList);
-    void procesAction(Document_Interface *doc);
+//    void processAction(QStringList *commandList);
+    void processAction(Document_Interface *doc);
     void checkAccept();
 
 protected:

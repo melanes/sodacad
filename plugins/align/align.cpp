@@ -32,17 +32,18 @@ void LC_Align::execComm(Document_Interface *doc,
                              QWidget *parent, QString cmd)
 {
     Q_UNUSED(parent);
+    Q_UNUSED(cmd);
     QPointF base1, base2, target1, target2;
     QList<Plug_Entity *> obj;
     bool yes  = doc->getSelect(&obj);
     if (!yes || obj.isEmpty()) return;
-    yes = doc->getPoint(&base1, QString("first base point:"));
+    yes = doc->getPoint(&base1, QString(tr("first base point:")));
     if (yes) {
-        yes = doc->getPoint(&target1, QString("first target point:"), &base1);
+        yes = doc->getPoint(&target1, QString(tr("first target point:")), &base1);
         if (yes) {
-            yes = doc->getPoint(&base2, QString("second base point:"));
+            yes = doc->getPoint(&base2, QString(tr("second base point:")));
             if (yes) {
-                yes = doc->getPoint(&target2, QString("second target point:"), &base2);
+                yes = doc->getPoint(&target2, QString(tr("second target point:")), &base2);
             }
         }
 
@@ -54,15 +55,11 @@ void LC_Align::execComm(Document_Interface *doc,
             obj.at(i)->move(movev);
         }
         //calculate angle
-        double incx1, incx2, incy1, incy2, abase, atarget, angle;
-        incx1 = base2.x() - base1.x();
-        incx2 = target2.x() - target1.x();
-        incy1 = base2.y() - base1.y();
-        incy2 = target2.y() - target1.y();
-        if (incx1 == 0) abase = M_PI/4;
-        else abase = atan(incy1/incx1);
-        if (incx2 == 0) atarget = M_PI/4;
-        else atarget = atan(incy2/incx2);
+        double abase, atarget, angle;
+        abase = atan2( base2.y() - base1.y(),
+                       base2.x() - base1.x());
+        atarget = atan2( target2.y() - target1.y(),
+                         target2.x() - target1.x());
         angle = atarget - abase;
         //end, rotate selection
         for (int i = 0; i < obj.size(); ++i) {
@@ -77,4 +74,6 @@ void LC_Align::execComm(Document_Interface *doc,
 }
 
 
+#if QT_VERSION < 0x050000
 Q_EXPORT_PLUGIN2(lc_align, LC_Align);
+#endif

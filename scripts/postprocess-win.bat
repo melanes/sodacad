@@ -3,41 +3,52 @@
 cd > PWD
 set /p PWD= < PWD
 
-set RESOURCEDIR=%PWD%\release\resources
-set TSDIR=%PWD%\ts
-set DOCDIR=%PWD%\support\doc
+
+set PWD=%PWD%\..\..
+
+
+set RESOURCEDIR=%PWD%\windows\resources
+set TSDIRLC=%PWD%\librecad\ts
+set TSDIRPI=%PWD%\plugins\ts
+set DOCDIR=%PWD%\librecad\support\doc
 
 REM Generate Help Files
-cd %DOCDIR%
+cd "%DOCDIR%"
 qcollectiongenerator LibreCADdoc.qhcp
 
-cd %PWD%
+cd "%PWD%"
 
 REM Postprocess for windows
 echo " Copying fonts and patterns"
-mkdir %RESOURCEDIR%\fonts
-mkdir %RESOURCEDIR%\patterns
-mkdir %RESOURCEDIR%\library
-mkdir %RESOURCEDIR%\doc
-mkdir %RESOURCEDIR%\library\misc
-mkdir %RESOURCEDIR%\library\templates
-copy support\patterns\*.dxf %RESOURCEDIR%\patterns
-copy support\fonts\*.cxf %RESOURCEDIR%\fonts
-copy support\fonts\*.lff %RESOURCEDIR%\fonts
-copy support\doc\*.qhc %RESOURCEDIR%\doc
-copy support\doc\*.qch %RESOURCEDIR%\doc
-copy support\library\misc\*.dxf %RESOURCEDIR%\library\misc
-copy support\library\templates\*.dxf %RESOURCEDIR%\library\templates
+if not exist "%RESOURCEDIR%\fonts\" (mkdir "%RESOURCEDIR%\fonts")
+if not exist "%RESOURCEDIR%\patterns\" (mkdir "%RESOURCEDIR%\patterns")
+if not exist "%RESOURCEDIR%\library\" (mkdir "%RESOURCEDIR%\library")
+if not exist "%RESOURCEDIR%\doc\" (mkdir "%RESOURCEDIR%\doc")
+if not exist "%RESOURCEDIR%\library\misc\" (mkdir "%RESOURCEDIR%\library\misc")
+if not exist "%RESOURCEDIR%\library\templates\" (mkdir "%RESOURCEDIR%\library\templates")
+
+copy "librecad\support\patterns\*.dxf" "%RESOURCEDIR%\patterns"
+copy "librecad\support\fonts\*.lff" "%RESOURCEDIR%\fonts"
+copy "librecad\support\doc\*.qhc" "%RESOURCEDIR%\doc"
+copy "librecad\support\doc\*.qch" "%RESOURCEDIR%\doc"
+copy "librecad\support\library\misc\*.dxf" "%RESOURCEDIR%\library\misc"
+copy "librecad\support\library\templates\*.dxf" "%RESOURCEDIR%\library\templates"
 
 
 REM Generate translations
 echo "Generating Translations"
-lrelease librecad.pro
-mkdir %RESOURCEDIR%\qm 
+lrelease librecad\src\src.pro
+lrelease plugins\plugins.pro
+if not exist "%RESOURCEDIR%\qm\" (mkdir "%RESOURCEDIR%\qm")
 
-cd %TSDIR%
+cd "%TSDIRLC%"
 for /f %%F in ('dir /b *.qm') do (
-	copy %%F %RESOURCEDIR%\qm\%%F
+        copy "%%F" "%RESOURCEDIR%\qm\%%F"
 )
 
-cd %PWD%
+cd "%TSDIRPI%"
+for /f %%F in ('dir /b *.qm') do (
+        copy "%%F" "%RESOURCEDIR%\qm\%%F"
+)
+
+cd "%PWD%"
