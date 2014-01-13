@@ -1,9 +1,10 @@
 TEMPLATE = subdirs
-TARGET = sodacad
+TARGET = librecad
 CONFIG += ordered
 
 SUBDIRS     = \
     libraries \
+    librecad \
     plugins \
     tools
 
