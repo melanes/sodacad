@@ -249,7 +249,7 @@ int main(int argc, char** argv) {
                 "preferred language.<br>"
                 "You can changes these settings later in the "
                 "Options Dialog of " XSTR(QC_APPNAME) ".");
-                QPixmap pxm(":/main/intro_librecad.png");
+                QPixmap pxm(":/main/intro_sodacad.png");
                 di.setPixmap(pxm);
                 if (di.exec()) {
                         RS_SETTINGS->beginGroup("/Defaults");
