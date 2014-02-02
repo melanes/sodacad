@@ -11,5 +11,9 @@
         <file>intro_librecad.png</file>
         <file>splash_librecad.png</file>
         <file>donate.png</file>
+        <file>splash_sodacad.png</file>
+        <file>sodacad.png</file>
+        <file>intro_sodacad.png</file>
+        <file>sodacad16.png</file>
     </qresource>
 </RCC>

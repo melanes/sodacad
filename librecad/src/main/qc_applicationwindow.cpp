@@ -105,13 +105,13 @@
 QC_ApplicationWindow* QC_ApplicationWindow::appWindow = NULL;
 
 #ifndef QC_APP_ICON
-# define QC_APP_ICON ":/main/librecad.png"
+# define QC_APP_ICON ":/main/sodacad.png"
 #endif
 #ifndef QC_ABOUT_ICON
-# define QC_ABOUT_ICON ":/main/intro_librecad.png"
+# define QC_ABOUT_ICON ":/main/intro_sodacad.png"
 #endif
 #ifndef QC_APP_ICON16
-# define QC_APP_ICON16 ":/main/librecad16.png"
+# define QC_APP_ICON16 ":/main/sodacad16.png"
 #endif
 
 #include <QSplashScreen>
@@ -3854,21 +3854,23 @@ void QC_ApplicationWindow::slotHelpAbout() {
                        tr("Compiled on: %1").arg(__DATE__) + "<br>" +
                        "Portions (c) 2011 by R. van Twisk" + "<br>" +
                        tr("Program Icons Supplied by") +"<br>&nbsp;&nbsp;&nbsp;Pablo: LibreCAD Argentine<br/>" +
-                       tr("Splash and Logo supplied by") + "<br>&nbsp;&nbsp;&nbsp;Diego " + "<a href=\"http://daltom.2082studio.com/\">Daltom Designer</a>" + "<br/>" +
+                       tr("Splash and Logo supplied by") + "<br>&nbsp;&nbsp;&nbsp; " + "<a href=\"http://www.designloft.blogspot.com/\">E Melander</a>" + "<br/>" +
                        "<br />" +
                        tr("Modules: %1").arg(modulesString) + "<br>" +
                        "<br />" +
-                       tr("Main Website : ") + "<a href=\"http://www.LibreCAD.org\">http://www.LibreCAD.org</a>"+"<br><br><br>"+
+                       tr("Main Website : ") + "<a href=\"http://www.SodaCAD.org\">http://www.sodacad.org</a>"+"<br><br><br>"+
                        "<font size=\"1\">Portions (c) by RibbonSoft, Andrew Mustun</font>" +
                        "</font></p>" +
-                       "<br>" +
-                       "<center>" +
-                       tr("Please consider donating to LibreCAD to help maintain the source code and website.") +
-                       "<br>" +
-                       "<br>" +
-                       "<a href=\"http://librecad.org/donate.html\" alt=\"Donate to LibreCAD\">" +
-                       "<img src=':/main/donate.png' />" +
-                       "</a></center>"
+                       "<br>"
+                       /**
+                       *"<center>" +
+                       *tr("Please consider donating to LibreCAD to help maintain the source code and website.") +
+                       *"<br>" +
+                       *"<br>" +
+                       *"<a href=\"http://librecad.org/donate.html\" alt=\"Donate to LibreCAD\">" +
+                       *"<img src=':/main/donate.png' />" +
+                       *"</a></center>"
+                       */
                        );
 
     box.setIconPixmap( QPixmap(QC_ABOUT_ICON) );
@@ -4655,7 +4657,7 @@ void QC_ApplicationWindow::slotTestInsertMText() {
                                RS_MTextData::LeftToRight,
                                RS_MTextData::Exact,
                                1.0,
-                               "LibreCAD",
+                               "SodaCAD",
                                "iso",
                                0.0);
         text = new RS_MText(graphic, textData);
@@ -4692,7 +4694,7 @@ void QC_ApplicationWindow::slotTestInsertText() {
                                RS_TextData::VABaseline,
                                RS_TextData::HALeft,
                                RS_TextData::None,
-                               "LibreCAD",
+                               "SodaCAD",
                                "iso",
                                0.0);
         text = new RS_Text(graphic, textData);

@@ -111,7 +111,7 @@ int main(int argc, char** argv) {
                         help1.compare(argstr, Qt::CaseInsensitive)==0
                         )
                     ){//hep information
-                qDebug()<<"librecad::usage: <options> <dxf file>";
+                qDebug()<<"sodacad::usage: <options> <dxf file>";
                 qDebug()<<"-h, --help\tdisplay this message";
                 qDebug()<<"";
                 qDebug()<<" --help\tdisplay this message";
@@ -262,7 +262,7 @@ int main(int argc, char** argv) {
 #ifdef QSPLASHSCREEN_H
         RS_DEBUG->print("main: splashscreen..");
 
-        QPixmap* pixmap = new QPixmap(":/main/splash_librecad.png");
+        QPixmap* pixmap = new QPixmap(":/main/splash_sodacad.png");
 # endif
 
         RS_DEBUG->print("main: init fontlist..");
