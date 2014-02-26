@@ -118,12 +118,12 @@
    </property>
    <property name="icon">
     <iconset resource="../../../res/extui/extui.qrc">
-     <normaloff>:/extui/circlescr.png</normaloff>:/extui/circlescr.png</iconset>
+     <normaloff>:/extui/circle_3pts-5.png</normaloff>:/extui/circle_3pts-5.png</iconset>
    </property>
    <property name="iconSize">
     <size>
-     <width>32</width>
-     <height>32</height>
+     <width>24</width>
+     <height>24</height>
     </size>
    </property>
    <property name="checkable">
@@ -194,12 +194,12 @@
    </property>
    <property name="icon">
     <iconset resource="../../../res/extui/extui.qrc">
-     <normaloff>:/extui/circles3p.png</normaloff>:/extui/circles3p.png</iconset>
+     <normaloff>:/extui/circle_3pts.png</normaloff>:/extui/circle_3pts.png</iconset>
    </property>
    <property name="iconSize">
     <size>
-     <width>32</width>
-     <height>32</height>
+     <width>24</width>
+     <height>24</height>
     </size>
    </property>
    <property name="checkable">

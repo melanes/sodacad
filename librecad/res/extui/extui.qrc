@@ -33,7 +33,6 @@
         <file>char_pm.png</file>
         <file>circles.png</file>
         <file>circles2p.png</file>
-        <file>circles3p.png</file>
         <file>circlescr.png</file>
         <file>circlespara.png</file>
         <file>colorbox.png</file>
@@ -81,8 +80,6 @@
         <file>infodist2.png</file>
         <file>infototallength.png</file>
         <file>linesangle.png</file>
-        <file>linesbisector.png</file>
-        <file>linesfree.png</file>
         <file>lineshor.png</file>
         <file>linesnormal.png</file>
         <file>linesorthogonal.png</file>
@@ -90,7 +87,6 @@
         <file>linesparathrough.png</file>
         <file>linespolygon.png</file>
         <file>linespolygon2.png</file>
-        <file>linesrect.png</file>
         <file>linesrelativeangle.png</file>
         <file>linesorthtan.png</file>
         <file>linestan1.png</file>
@@ -110,7 +106,6 @@
         <file>menupolyline.png</file>
         <file>menuselect.png</file>
         <file>menuspline.png</file>
-        <file>menutext.png</file>
         <file>modifyattributes.png</file>
         <file>modifybevel.png</file>
         <file>modifycut.png</file>
@@ -187,5 +182,18 @@
         <file>circletan1_2p.png</file>
         <file>circletan2_1p.png</file>
         <file>reverse.png</file>
+        <file>circle_3pts-5.png</file>
+        <file>circle_3pts.png</file>
+        <file>angle_bisector.png</file>
+        <file>draw-rect.png</file>
+        <file>draw_arc.png</file>
+        <file>node_insert.png</file>
+        <file>ink_draw_text.png</file>
+        <file>draw_lpetool.png</file>
+        <file>draw_paintbucket.png</file>
+        <file>ink_file_import.png</file>
+        <file>ink_union.png</file>
+        <file>ink_draw_select.png</file>
+        <file>ink_draw_freehand.png</file>
     </qresource>
 </RCC>

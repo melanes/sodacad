@@ -26,7 +26,16 @@
    <string>Lines</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <property name="margin">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
     <number>0</number>
    </property>
    <property name="spacing">
@@ -208,12 +217,12 @@
      </property>
      <property name="icon">
       <iconset resource="../../../res/extui/extui.qrc">
-       <normaloff>:/extui/linesrect.png</normaloff>:/extui/linesrect.png</iconset>
+       <normaloff>:/extui/draw-rect.png</normaloff>:/extui/draw-rect.png</iconset>
      </property>
      <property name="iconSize">
       <size>
-       <width>32</width>
-       <height>32</height>
+       <width>24</width>
+       <height>24</height>
       </size>
      </property>
      <property name="checkable">
@@ -240,12 +249,12 @@
      </property>
      <property name="icon">
       <iconset resource="../../../res/extui/extui.qrc">
-       <normaloff>:/extui/linesbisector.png</normaloff>:/extui/linesbisector.png</iconset>
+       <normaloff>:/extui/angle_bisector.png</normaloff>:/extui/angle_bisector.png</iconset>
      </property>
      <property name="iconSize">
       <size>
-       <width>32</width>
-       <height>32</height>
+       <width>24</width>
+       <height>24</height>
       </size>
      </property>
      <property name="checkable">
@@ -560,12 +569,12 @@
      </property>
      <property name="icon">
       <iconset resource="../../../res/extui/extui.qrc">
-       <normaloff>:/extui/linesfree.png</normaloff>:/extui/linesfree.png</iconset>
+       <normaloff>:/extui/ink_draw_freehand.png</normaloff>:/extui/ink_draw_freehand.png</iconset>
      </property>
      <property name="iconSize">
       <size>
-       <width>32</width>
-       <height>32</height>
+       <width>24</width>
+       <height>24</height>
       </size>
      </property>
      <property name="checkable">
