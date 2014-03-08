@@ -182,18 +182,21 @@
         <file>circletan1_2p.png</file>
         <file>circletan2_1p.png</file>
         <file>reverse.png</file>
-        <file>circle_3pts-5.png</file>
-        <file>circle_3pts.png</file>
-        <file>angle_bisector.png</file>
-        <file>draw-rect.png</file>
-        <file>draw_arc.png</file>
+        <file>draw-eraser.png</file>
+        <file>ink_draw_select.png</file>
+        <file>ink_object_flip_hor.png</file>
+        <file>ink_transform_rotate.png</file>
+        <file>ink_union.png</file>
         <file>node_insert.png</file>
         <file>ink_draw_text.png</file>
-        <file>draw_lpetool.png</file>
         <file>draw_paintbucket.png</file>
+        <file>ink_draw_lpetool.png</file>
         <file>ink_file_import.png</file>
-        <file>ink_union.png</file>
-        <file>ink_draw_select.png</file>
+        <file>draw_arc.png</file>
+        <file>circle_3pts-5.png</file>
+        <file>circle_3pts.png</file>
+        <file>draw-rect.png</file>
+        <file>angle_bisector.png</file>
         <file>ink_draw_freehand.png</file>
     </qresource>
 </RCC>

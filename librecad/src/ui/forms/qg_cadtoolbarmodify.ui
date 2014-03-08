@@ -80,12 +80,12 @@
    </property>
    <property name="icon">
     <iconset resource="../../../res/extui/extui.qrc">
-     <normaloff>:/extui/modifymove.png</normaloff>:/extui/modifymove.png</iconset>
+     <normaloff>:/extui/ink_draw_select.png</normaloff>:/extui/ink_draw_select.png</iconset>
    </property>
    <property name="iconSize">
     <size>
-     <width>32</width>
-     <height>32</height>
+     <width>24</width>
+     <height>24</height>
     </size>
    </property>
    <property name="checkable">
@@ -118,12 +118,12 @@
    </property>
    <property name="icon">
     <iconset resource="../../../res/extui/extui.qrc">
-     <normaloff>:/extui/modifyrotate.png</normaloff>:/extui/modifyrotate.png</iconset>
+     <normaloff>:/extui/ink_transform_rotate.png</normaloff>:/extui/ink_transform_rotate.png</iconset>
    </property>
    <property name="iconSize">
     <size>
-     <width>32</width>
-     <height>32</height>
+     <width>24</width>
+     <height>24</height>
     </size>
    </property>
    <property name="checkable">
@@ -194,12 +194,12 @@
    </property>
    <property name="icon">
     <iconset resource="../../../res/extui/extui.qrc">
-     <normaloff>:/extui/modifymirror.png</normaloff>:/extui/modifymirror.png</iconset>
+     <normaloff>:/extui/ink_object_flip_hor.png</normaloff>:/extui/ink_object_flip_hor.png</iconset>
    </property>
    <property name="iconSize">
     <size>
-     <width>32</width>
-     <height>32</height>
+     <width>24</width>
+     <height>24</height>
     </size>
    </property>
    <property name="checkable">
@@ -688,12 +688,12 @@
    </property>
    <property name="icon">
     <iconset resource="../../../res/extui/extui.qrc">
-     <normaloff>:/extui/modifydelete.png</normaloff>:/extui/modifydelete.png</iconset>
+     <normaloff>:/extui/draw-eraser.png</normaloff>:/extui/draw-eraser.png</iconset>
    </property>
    <property name="iconSize">
     <size>
-     <width>32</width>
-     <height>32</height>
+     <width>24</width>
+     <height>24</height>
     </size>
    </property>
    <property name="checkable">

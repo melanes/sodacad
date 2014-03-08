@@ -359,7 +359,7 @@
      </property>
      <property name="icon">
       <iconset resource="../../../res/extui/extui.qrc">
-       <normaloff>:/extui/draw_lpetool.png</normaloff>:/extui/draw_lpetool.png</iconset>
+       <normaloff>:/extui/ink_draw_lpetool.png</normaloff>:/extui/ink_draw_lpetool.png</iconset>
      </property>
      <property name="iconSize">
       <size>
